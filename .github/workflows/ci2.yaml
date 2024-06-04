@@ -18,4 +18,4 @@ jobs:
         chmod +x build.sh
         ./build.sh
     - name: Test
-      run: ./test/test_matrix_multiplication
+      run: ./test/test_matrix_multiplication.cpp
