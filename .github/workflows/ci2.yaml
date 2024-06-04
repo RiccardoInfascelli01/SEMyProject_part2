@@ -1,23 +1,24 @@
 name: CI/CD Pipeline
-on: [push]
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Checkout submodules
-      uses: actions/checkout@v2
-      with:
-        submodules: 'recursive'
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y cmake g++ libopenmpi-dev
-    - name: Build
-      run: |
-        chmod +x build.sh
-        ./build.sh
-    - name: Compile tests
-      run: mpic++ -I./SEMyProject_part2/include -o test_matrix_multiplication SEMyProject_part2/test/test_matrix_multiplication.cpp SEMyProject_part2/src/matrix_mult.cpp
-    - name: Run tests
-      run: mpirun ./test_matrix_multiplication
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake g++ libopenmpi-dev
+
+      - name: Compile tests
+        run: |
+          mpic++ -I./SEMyProject_part2/include -o test_matrix_multiplication SEMyProject_part2/test/test_matrix_multiplication.cpp SEMyProject_part2/src/matrix_mult.cpp
+
+      - name: Run tests
+        run: ./test_matrix_multiplication
