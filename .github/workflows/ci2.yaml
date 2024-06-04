@@ -1,1 +1,15 @@
-
+name: CI/CD Pipeline
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: sudo apt-get install cmake g++ -y
+    - name: Build
+      run: |
+        chmod +x build.sh
+        ./build.sh
+    - name: Test
+      run: ./test/test_matrix_multiplication
