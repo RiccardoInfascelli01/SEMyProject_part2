@@ -19,7 +19,7 @@ jobs:
       run: mpic++ -c -I../../test/** src/matrix_mult.cpp -o matrix_mult.o
 
     - name: Compile test_matrix_multiplication.cpp
-      run: mpic++ -c -I../../** test/test_matrix_multiplication.cpp -o test_matrix_multiplication.o
+      run: mpic++ -c -I../../test/** test/test_matrix_multiplication.cpp -o test_matrix_multiplication.o
 
     - name: Link objects and create executable
       run: mpic++ matrix_mult.o test_matrix_multiplication.o -o test_matrix_multiplication
