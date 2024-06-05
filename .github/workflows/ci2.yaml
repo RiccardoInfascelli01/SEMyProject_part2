@@ -43,4 +43,4 @@ jobs:
         sudo make -C builddir install
 
     - name: Build Singularity Image
-      run: sudo singularity build my_image.sif ../descriptor.def
+      run: sudo singularity build my_image.sif ../../descriptor.def
