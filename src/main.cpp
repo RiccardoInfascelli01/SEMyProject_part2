@@ -67,7 +67,7 @@ int main(int argc, char** argv) {
     }
 
     std::vector<std::vector<int>> C(rowsA, std::vector<int>(colsB, 0));
-    multiplyMatrices(A, B, C, rowsA, colsA, colsB);
+    multiplyMatricesWithoutErrors(A, B, C, rowsA, colsA, colsB);
 
     if (rank == 0) {
         std::cout << "Congratulations, bro. Here is your resultant matrix C:" << std::endl;
