@@ -18,7 +18,7 @@ jobs:
 
       - name: Compile tests
         run: |
-          mpic++ -I./SEMyProject_part2/include -o test_matrix_multiplication SEMyProject_part2/test/test_matrix_multiplication.cpp SEMyProject_part2/src/matrix_mult.cpp
+          mpic++ -I./SEMyProject_part2/** -o test_matrix_multiplication SEMyProject_part2/test/test_matrix_multiplication.cpp SEMyProject_part2/src/matrix_mult.cpp
 
       - name: Run tests
         run: ./test_matrix_multiplication
