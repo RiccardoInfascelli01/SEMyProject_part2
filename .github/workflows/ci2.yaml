@@ -26,4 +26,4 @@ jobs:
       run: mpic++ matrix_mult.o test_matrix_multiplication.o -o test_matrix_multiplication -lgtest -lgtest_main
 
     - name: Run tests
-      run: mpirun -np 2 ./test_matrix_multiplication
+      run: mpiexec -np 2 ./test_matrix_multiplication
