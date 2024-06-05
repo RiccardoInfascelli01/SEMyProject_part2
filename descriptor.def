@@ -1,0 +1,19 @@
+Bootstrap: Singularity
+From: ubuntu:latest
+
+%post
+    # Install necessary dependencies
+    apt-get update && apt-get install -y gcc g++ make mpi-default-dev mpi-default-bin
+
+%files
+    # Copy the matrix multiplication program into the container
+    src/main.cpp /app/main.cpp
+    include/matrix_multiplication.h /app/matrix_multiplication.h
+    lib/libmatrix_multiplication_without_errors.a /app/libmatrix_multiplication_without_errors.a
+
+%runscript
+    # Set the working directory and compile the matrix multiplication program
+    cd /app
+    mpic++ -o matrix_multiplication_program main.cpp -L. -lmatrix_multiplication_without_errors
+    # Execute the matrix multiplication program
+    mpirun --allow-run-as-root -np 4 ./matrix_multiplication_program
