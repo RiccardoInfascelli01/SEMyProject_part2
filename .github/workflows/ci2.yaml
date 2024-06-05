@@ -10,14 +10,12 @@ jobs:
       with:
         submodules: 'recursive'
     - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y cmake g++ libopenmpi-dev
+      run: sudo apt-get install -y cmake g++ libopenmpi-dev
     - name: Build
       run: |
         chmod +x build.sh
         ./build.sh
     - name: Compile tests
-      run: mpic++ -I../../** -o test_matrix_multiplication ../../test/test_matrix_multiplication.cpp ../../src/matrix_mult.cpp
+      run: mpic++ -I../../** -o test_matrix_multiplication test_matrix_multiplication.cpp src/matrix_mult.cpp
     - name: Run tests
       run: mpirun ./test_matrix_multiplication
