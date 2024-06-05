@@ -20,8 +20,8 @@ jobs:
 
     - name: Compile test_matrix_multiplication.cpp
       run: |
-        #include "/include/matrix_multiplication.h"
-        mpic++ -c -I../../** -I"/include/matrix_multiplication.h" test/test_matrix_multiplication.cpp -o test_matrix_multiplication.o
+        #include "../../include/matrix_multiplication.h"
+        mpic++ -c -I../../** test/test_matrix_multiplication.cpp -o test_matrix_multiplication.o
 
     - name: Link objects and create executable
       run: mpic++ matrix_mult.o test_matrix_multiplication.o -o test_matrix_multiplication
