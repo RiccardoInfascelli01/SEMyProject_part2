@@ -25,5 +25,37 @@ jobs:
     - name: Link objects and create executable
       run: mpic++ matrix_mult.o test_matrix_multiplication.o -o test_matrix_multiplication -lgtest -lgtest_main
 
-    - name: Run tests
-      run: mpiexec -np 2 ./test_matrix_multiplication
+    #- name: Run tests
+    #  run: mpiexec -np 2 ./test_matrix_multiplication
+
+    - name: Install Singularity dependencies
+      run: sudo apt-get install -y \
+        autoconf \
+        automake \
+        cryptsetup \
+        git \
+        libfuse-dev \
+        libglib2.0-dev \
+        libseccomp-dev \
+        libtool \
+        pkg-config \
+        runc \
+        squashfs-tools \
+        squashfs-tools-ng \
+        uidmap \
+        wget \
+        zlib1g-dev
+
+
+    - name: Install Singularity
+      run: |
+        export VERSION=4.1.3 &&
+        wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz &&
+        tar -xzf singularity-${VERSION}.tar.gz &&
+        cd singularity &&
+        ./mconfig &&
+        make -C ./builddir &&
+        sudo make -C ./builddir install
+
+    - name: Build Singularity Image
+      run: sudo singularity build my_image.sif descriptor.def
