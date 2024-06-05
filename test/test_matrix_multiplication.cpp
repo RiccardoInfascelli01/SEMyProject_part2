@@ -18,7 +18,7 @@ TEST(MatrixMultiplicationTest, TestMultiplyMatrices) {
     };
     std::vector<std::vector<int>> C(2, std::vector<int>(2, 0));
 
-    multiplyMatricesWithoutErrors(A, B, C, 2, 3, 2);
+    multiplyMatrices(A, B, C, 2, 3, 2);
 
     std::vector<std::vector<int>> expected = {
         {58, 64},
@@ -39,7 +39,7 @@ TEST(MatrixMultiplicationTest, Test1x1) {
     };
     std::vector<std::vector<int>> C(1, std::vector<int>(1, 0));
 
-    multiplyMatricesWithoutErrors(A, B, C, 1, 1, 1);
+    multiplyMatrices(A, B, C, 1, 1, 1);
 
     std::vector<std::vector<int>> expected = {
         {9}
@@ -57,7 +57,7 @@ TEST(MatrixMultiplicationTest, Test1x1liv2) {
     };
     std::vector<std::vector<int>> C(1, std::vector<int>(1, 0));
 
-    multiplyMatricesWithoutErrors(A, B, C, 1, 1, 1);
+    multiplyMatrices(A, B, C, 1, 1, 1);
 
     std::vector<std::vector<int>> expected = {
         {-3}
@@ -75,7 +75,7 @@ TEST(MatrixMultiplicationTest, Test1x1liv3) {
     };
     std::vector<std::vector<int>> C(1, std::vector<int>(1, 0));
 
-    multiplyMatricesWithoutErrors(A, B, C, 1, 1, 1);
+    multiplyMatrices(A, B, C, 1, 1, 1);
 
     std::vector<std::vector<int>> expected = {
         {124230}
@@ -93,7 +93,7 @@ TEST(MatrixMultiplicationTest, Test1x1liv4) {
     };
     std::vector<std::vector<int>> C(1, std::vector<int>(1, 0));
 
-    multiplyMatricesWithoutErrors(A, B, C, 1, 1, 1);
+    multiplyMatrices(A, B, C, 1, 1, 1);
 
     std::vector<std::vector<int>> expected = {
         {144}
@@ -112,7 +112,7 @@ TEST(MatrixMultiplicationTest, Test1x2x1) {
     };
     std::vector<std::vector<int>> C(1, std::vector<int>(1, 0));
 
-    multiplyMatricesWithoutErrors(A, B, C, 1, 2, 1);
+    multiplyMatrices(A, B, C, 1, 2, 1);
 
     std::vector<std::vector<int>> expected = {
         {11}
@@ -131,7 +131,7 @@ TEST(MatrixMultiplicationTest, Test1x2x1liv2) {
     };
     std::vector<std::vector<int>> C(1, std::vector<int>(1, 0));
 
-    multiplyMatricesWithoutErrors(A, B, C, 1, 2, 1);
+    multiplyMatrices(A, B, C, 1, 2, 1);
 
     std::vector<std::vector<int>> expected = {
         {4}
@@ -150,7 +150,7 @@ TEST(MatrixMultiplicationTest, Test1x2x3) {
     };
     std::vector<std::vector<int>> C(1, std::vector<int>(3, 0));
 
-    multiplyMatricesWithoutErrors(A, B, C, 1, 2, 1);
+    multiplyMatrices(A, B, C, 1, 2, 1);
 
     std::vector<std::vector<int>> expected = {
         {4}
@@ -171,7 +171,7 @@ TEST(MatrixMultiplicationTest, Test2x2x2) {
     };
     std::vector<std::vector<int>> C(2, std::vector<int>(2, 0));
 
-    multiplyMatricesWithoutErrors(A, B, C, 1, 2, 1);
+    multiplyMatrices(A, B, C, 1, 2, 1);
 
     std::vector<std::vector<int>> expected = {
         {19,22},
@@ -192,7 +192,7 @@ TEST(MatrixMultiplicationTest, Test2x3x3) {
     };
     std::vector<std::vector<int>> C(2, std::vector<int>(3, 0));
 
-    multiplyMatricesWithoutErrors(A, B, C, 2, 2, 3);
+    multiplyMatrices(A, B, C, 2, 2, 3);
 
     std::vector<std::vector<int>> expected = {
         {0,0,0},
@@ -213,7 +213,7 @@ TEST(MatrixMultiplicationTest, Test2x3x3liv2) {
     };
     std::vector<std::vector<int>> C(2, std::vector<int>(3, 0));
 
-    multiplyMatricesWithoutErrors(A, B, C, 2, 2, 3);
+    multiplyMatrices(A, B, C, 2, 2, 3);
 
     std::vector<std::vector<int>> expected = {
         {-8,0,-8},
@@ -233,7 +233,7 @@ TEST(MatrixMultiplicationTest, Test10x10x10) {
         }
     std::vector<std::vector<int>> C(10, std::vector<int>(10, 0));
 
-    multiplyMatricesWithoutErrors(A, B, C, 10,10,10);
+    multiplyMatrices(A, B, C, 10,10,10);
 
     std::vector<std::vector<int>> expected(10, std::vector<int>(10, 0));
 
@@ -253,7 +253,7 @@ TEST(MatrixMultiplicationTest, Test100x100x100) {
         }
     std::vector<std::vector<int>> C(100, std::vector<int>(100, 0));
 
-    multiplyMatricesWithoutErrors(A, B, C, 100,100,100);
+    multiplyMatrices(A, B, C, 100,100,100);
 
     ASSERT_EQ(C, A) << "Matrix multiplication test failed! :(((()";
 }
@@ -264,7 +264,7 @@ TEST(MatrixMultiplicationTest, Test10x10x10liv2) {
 
     std::vector<std::vector<int>> C(10, std::vector<int>(10, 0));
 
-    multiplyMatricesWithoutErrors(A, B, C, 10,10,10);
+    multiplyMatrices(A, B, C, 10,10,10);
 
     ASSERT_EQ(C, A) << "Matrix multiplication test failed! :(((()";
 }
@@ -279,7 +279,7 @@ TEST(MatrixMultiplicationTest, Test10x10x10liv3) {
         }
     std::vector<std::vector<int>> C(10, std::vector<int>(10, 0));
 
-    multiplyMatricesWithoutErrors(A, B, C, 10,10,10);
+    multiplyMatrices(A, B, C, 10,10,10);
 
     std::vector<std::vector<int>> expected(10, std::vector<int>(10, 0));
     for(int i=0; i<10;i++)
@@ -310,7 +310,7 @@ TEST(MatrixMultiplicationTest, Test5x4x3) {
     
     std::vector<std::vector<int>> C(5, std::vector<int>(3, 0));
 
-    multiplyMatricesWithoutErrors(A, B, C, 5,4,3);
+    multiplyMatrices(A, B, C, 5,4,3);
 
     std::vector<std::vector<int>> expected = {
         {5033,9,4076},
