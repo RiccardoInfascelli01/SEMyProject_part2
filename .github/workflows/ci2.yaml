@@ -5,16 +5,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Checkout submodules
-      uses: actions/checkout@v2
       with:
         submodules: 'recursive'
+    
     - name: Install dependencies
       run: sudo apt-get install -y cmake g++ libopenmpi-dev libgtest-dev
+    
     - name: Build
       run: |
         chmod +x build.sh
         ./build.sh
+
     - name: Compile matrix_mult.cpp
       run: mpic++ -c -I../../** src/matrix_mult.cpp -o matrix_mult.o
 
@@ -22,6 +23,7 @@ jobs:
       run: mpic++ -c -I../../** test/test_matrix_multiplication.cpp -o test_matrix_multiplication.o
 
     - name: Link objects and create executable
-      run: mpic++ matrix_mult.o test_matrix_multiplication.o -o test_matrix_multiplication
+      run: mpic++ matrix_mult.o test_matrix_multiplication.o -o test_matrix_multiplication -lgtest -lgtest_main
+
     - name: Run tests
       run: mpirun ./test_matrix_multiplication
