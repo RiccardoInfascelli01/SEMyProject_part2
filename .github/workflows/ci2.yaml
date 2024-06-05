@@ -15,7 +15,9 @@ jobs:
       run: |
         chmod +x build.sh
         ./build.sh
+    - name: Print directory structure
+      run: ls -R
     - name: Compile tests
-      run: mpic++ -I../../** -o test_matrix_multiplication test_matrix_multiplication.cpp src/matrix_mult.cpp
+      run: mpic++ -I../../** -o test_matrix_multiplication test/test_matrix_multiplication.cpp src/matrix_mult.cpp
     - name: Run tests
       run: mpirun ./test_matrix_multiplication
