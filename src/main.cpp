@@ -1,4 +1,4 @@
-#include "/include/matrix_multiplication.h"
+#include "matrix_multiplication.h"
 #include <mpi.h>
 #include <iostream>
 #include <fstream>
