@@ -27,7 +27,3 @@ jobs:
       run: mpic++ matrix_mult.o test_matrix_multiplication.o -o test_matrix_multiplication
     - name: Run tests
       run: mpirun ./test_matrix_multiplication
-
-
-      SEMyProject_part2/include/matrix_multiplication.h
-      SEMyProject_part2/.github/workflows/ci2.yaml
