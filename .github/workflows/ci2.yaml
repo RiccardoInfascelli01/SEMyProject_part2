@@ -16,6 +16,6 @@ jobs:
         chmod +x build.sh
         ./build.sh
     - name: Compile tests
-      run: mpic++ -I../../** -o test_matrix_multiplication test_matrix_multiplication.cpp src/matrix_mult.cpp
+      run: mpic++ -I../../** -o test_matrix_multiplication SEMyProject_part2/test/test_matrix_multiplication.cpp SEMyProject_part2/src/matrix_mult.cpp
     - name: Run tests
       run: mpirun ./test_matrix_multiplication
