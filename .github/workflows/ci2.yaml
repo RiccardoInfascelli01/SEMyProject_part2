@@ -15,7 +15,13 @@ jobs:
       run: |
         chmod +x build.sh
         ./build.sh
-    - name: Compile tests
-      run: mpic++ "-I../../**" -I../include/ -o test_matrix_multiplication test/test_matrix_multiplication.cpp src/matrix_mult.cpp
+    - name: Compile matrix_mult.cpp
+      run: mpic++ -c -I../../** src/matrix_mult.cpp -o matrix_mult.o
+
+    - name: Compile test_matrix_multiplication.cpp
+      run: mpic++ -c -I../../** test/test_matrix_multiplication.cpp -o test_matrix_multiplication.o
+
+    - name: Link objects and create executable
+      run: mpic++ matrix_mult.o test_matrix_multiplication.o -o test_matrix_multiplication
     - name: Run tests
       run: mpirun ./test_matrix_multiplication
