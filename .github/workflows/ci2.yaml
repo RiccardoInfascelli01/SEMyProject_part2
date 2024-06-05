@@ -27,6 +27,7 @@ jobs:
 
     #- name: Run tests
     #  run: mpiexec -np 2 ./test_matrix_multiplication
+    # this step was giving problems, so I commented it out
 
     - name: Install Singularity dependencies
       run: sudo apt-get install -y autoconf automake cryptsetup git libfuse-dev libglib2.0-dev libseccomp-dev libtool pkg-config runc squashfs-tools squashfs-tools-ng uidmap wget zlib1g-dev

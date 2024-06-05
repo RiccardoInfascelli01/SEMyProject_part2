@@ -19,4 +19,4 @@ From: ubuntu:latest
 
 %runscript
     # Execute the matrix multiplication program
-    mpirun --allow-run-as-root -np 4 /app/matrix_multiplication_program
+    mpirun --allow-run-as-root -np 2 /app/matrix_multiplication_program
